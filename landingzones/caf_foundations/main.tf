@@ -26,6 +26,16 @@ terraform {
     }
   }
   required_version = ">= 0.13"
+
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "ecb"
+
+    workspaces {
+      name = "caf-terraform-landingzones"
+    }
+    }
+  }
 }
 
 
@@ -55,8 +65,8 @@ locals {
         "subscription_id", data.azurerm_client_config.current.subscription_id
       )
     )
-    ,
-    data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.tfstates
+    #,
+    #data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.tfstates
   )
 
 }
