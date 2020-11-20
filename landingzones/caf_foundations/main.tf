@@ -34,7 +34,7 @@ terraform {
     workspaces {
       name = "caf-terraform-landingzones"
     }
-    }
+  }
   }
 }
 

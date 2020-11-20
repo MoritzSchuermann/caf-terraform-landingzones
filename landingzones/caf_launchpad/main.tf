@@ -30,6 +30,15 @@ terraform {
     }
   }
   required_version = ">= 0.13"
+
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "ecb"
+
+    workspaces {
+      name = "caf-terraform-landingzones"
+    }
+  }
 }
 
 
